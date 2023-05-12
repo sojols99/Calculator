@@ -1,0 +1,176 @@
+import math
+
+# define functions for scientific operations
+def square_root():
+    num = float(input("Enter a number: "))
+    result = math.sqrt(num)
+    print("Square root of {} is {}".format(num, result))
+
+def sin():
+    angle = float(input("Enter an angle in degrees: "))
+    result = math.sin(math.radians(angle))
+    print("Sine of {} is {}".format(angle, result))
+
+def cos():
+    angle = float(input("Enter an angle in degrees: "))
+    result = math.cos(math.radians(angle))
+    print("Cosine of {} is {}".format(angle, result))
+
+def tan():
+    angle = float(input("Enter an angle in degrees: "))
+    result = math.tan(math.radians(angle))
+    print("Tangent of {} is {}".format(angle, result))
+
+# define main function for the calculator
+def calculator():
+    print("Welcome to the scientific calculator!")
+    print("Select an operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Square root")
+    print("6. Sine")
+    print("7. Cosine")
+    print("8. Tangent")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 + num2
+        print("The sum is:", result)
+
+    elif choice == 2:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 - num2
+        print("The difference is:", result)
+
+    elif choice == 3:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 * num2
+        print("The product is:", result)
+
+    elif choice == 4:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        if num2 == 0:
+            print("Error: Division by zero!")
+        else:
+            result = num1 / num2
+            print("The quotient is:", result)
+
+    elif choice == 5:
+        square_root()
+
+    elif choice == 6:
+        sin()
+
+    elif choice == 7:
+        cos()
+
+    elif choice == 8:
+        tan()
+
+    else:
+        print("Invalid choice")
+
+# call the main function
+calculator()
+
+from tkinter import *
+import math
+
+# Create a tkinter window
+root = Tk()
+root.title("Scientific Calculator")
+
+# Add a label to the window
+display = Entry(root, width=35, borderwidth=5)
+display.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+
+# Define button click functions
+def button_click(number):
+    current = display.get()
+    display.delete(0, END)
+    display.insert(0, str(current) + str(number))
+
+def button_clear():
+    display.delete(0, END)
+
+def button_add():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "addition"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_subtract():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "subtraction"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_multiply():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "multiplication"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_divide():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "division"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_power():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "power"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_sqrt():
+    first_number = display.get()
+    global f_num
+    global math_operation
+    math_operation = "sqrt"
+    f_num = float(first_number)
+    display.delete(0, END)
+
+def button_equal():
+    second_number = display.get()
+    display.delete(0, END)
+
+    if math_operation == "addition":
+        display.insert(0, f_num + float(second_number))
+    elif math_operation == "subtraction":
+        display.insert(0, f_num - float(second_number))
+    elif math_operation == "multiplication":
+        display.insert(0, f_num * float(second_number))
+    elif math_operation == "division":
+        display.insert(0, f_num / float(second_number))
+    elif math_operation == "power":
+        display.insert(0, pow(f_num, float(second_number)))
+    elif math_operation == "sqrt":
+        display.insert(0, math.sqrt(f_num))
+
+# Create buttons for the calculator
+button_1 = Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
+button_2 = Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
+button_3 = Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
+button_4 = Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
+button_5 = Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
+button_6 = Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
+elif math operation == "division":
